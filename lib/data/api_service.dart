@@ -22,9 +22,13 @@ class ApiService {
           .timeout(AppConfig.apiTimeout);
       if (response.statusCode == 200) {
         final List<dynamic> data = jsonDecode(response.body);
-        return data.map((e) => Brand.fromJson(e)).toList(); // Parse to Brand objects
+        return data
+            .map((e) => Brand.fromJson(e))
+            .toList(); // Parse to Brand objects
       } else {
-        throw Exception('Failed to load brands from API: ${response.statusCode}');
+        throw Exception(
+          'Failed to load brands from API: ${response.statusCode}',
+        );
       }
     } catch (e) {
       throw Exception('Failed to load brands: $e');
@@ -63,5 +67,63 @@ class ApiService {
     return list
         .map((m) => Fixture.fromJson(Map<String, dynamic>.from(m)))
         .toList();
+  }
+
+  // Crear Marca
+  static Future<bool> createBrand(String name, String token) async {
+    try {
+      final uri = Uri.parse("$baseUrl/brands");
+      final response = await http
+          .post(
+            uri,
+            headers: {
+              'Authorization': 'Bearer $token',
+              'Content-Type': 'application/json',
+            },
+            body: jsonEncode({'nombre': name}),
+          )
+          .timeout(AppConfig.apiTimeout);
+
+      return response.statusCode == 200;
+    } catch (e) {
+      print("Error creating brand: $e");
+      return false;
+    }
+  }
+
+  // Crear Fixture
+  static Future<bool> createFixture(
+    String name,
+    String brandName,
+    String imageUrl,
+    String? tipo,
+    String? manualUrl,
+    String? libreriaUrl,
+    String token,
+  ) async {
+    try {
+      final uri = Uri.parse("$baseUrl/fixtures?marca_nombre=$brandName");
+      final response = await http
+          .post(
+            uri,
+            headers: {
+              'Authorization': 'Bearer $token',
+              'Content-Type': 'application/json',
+            },
+            body: jsonEncode({
+              'nombre': name,
+              'imagen': imageUrl,
+              'tipo': tipo,
+              'manual': manualUrl,
+              'libreria': libreriaUrl,
+            }),
+          )
+          .timeout(AppConfig.apiTimeout);
+
+      return response.statusCode == 200;
+    } catch (e) {
+      print("Error creating fixture: $e");
+      return false;
+    }
   }
 }

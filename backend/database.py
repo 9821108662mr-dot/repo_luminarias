@@ -6,11 +6,24 @@ from sqlalchemy.ext.declarative import declarative_base
 # --- Configuración de la Base de Datos ---
 # Construye la ruta a la base de datos relativa a la ubicación de este archivo.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'luminarias.db')}"
+
+# Intentar obtener URL de base de datos de variable de entorno (Render)
+# Si no existe, usar SQLite local
+DATABASE_URL = os.getenv("DATABASE_URL")
+
+if DATABASE_URL and DATABASE_URL.startswith("postgres://"):
+    # Fix para SQLAlchemy que requiere postgresql:// en lugar de postgres://
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+
+if not DATABASE_URL:
+    DATABASE_URL = f"sqlite:///{os.path.join(BASE_DIR, 'luminarias.db')}"
+    connect_args = {"check_same_thread": False} # Necesario para SQLite
+else:
+    connect_args = {} # No necesario para Postgres
 
 engine = create_engine(
     DATABASE_URL, 
-    connect_args={"check_same_thread": False} # Necesario para SQLite con FastAPI
+    connect_args=connect_args
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -39,7 +52,9 @@ class Fixture(Base):
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String, index=True)
     imagen = Column(String) # Ruta a la imagen
-    pdf = Column(String)    # Ruta al PDF
+    manual = Column(String) # Ruta al PDF
+    tipo = Column(String)   # Tipo de fixture (Beam, Spot, etc)
+    libreria = Column(String) # Ruta a la libreria
     marca_id = Column(Integer, ForeignKey("marcas.id"))
 
     marca = relationship("Marca", back_populates="fixtures")

@@ -5,7 +5,9 @@ from pydantic import BaseModel
 class FixtureBase(BaseModel):
     nombre: str
     imagen: str
-    pdf: str | None = None
+    manual: str | None = None
+    tipo: str | None = None
+    libreria: str | None = None
 
 class Fixture(FixtureBase):
     id: int

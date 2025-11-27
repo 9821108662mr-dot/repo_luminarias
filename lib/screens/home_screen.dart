@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import '../data/api_service.dart';
 import '../config/app_config.dart';
-// ignore: unused_import
-import 'details_screen.dart';
+import '../data/api_service.dart';
+import '../data/auth_service.dart';
 import '../models/brand.dart';
 import '../widgets/brand_card.dart';
+import 'add_fixture_screen.dart';
+import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -15,17 +16,67 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late Future<List<Brand>> _brandsFuture;
+  bool _isAdmin = false;
 
   @override
   void initState() {
     super.initState();
+    _checkAdmin();
     _brandsFuture = ApiService.obtenerMarcas();
+  }
+
+  Future<void> _checkAdmin() async {
+    final isLoggedIn = await AuthService.isLoggedIn();
+    if (mounted) {
+      setState(() {
+        _isAdmin = isLoggedIn;
+      });
+    }
+  }
+
+  void _logout() async {
+    await AuthService.logout();
+    if (mounted) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Catálogo PRO-MG')),
+      appBar: AppBar(
+        title: const Text('Catálogo PRO-MG'),
+        actions: [
+          if (_isAdmin)
+            IconButton(
+              icon: const Icon(Icons.logout),
+              onPressed: _logout,
+              tooltip: 'Cerrar sesión',
+            ),
+        ],
+      ),
+      floatingActionButton: _isAdmin
+          ? FloatingActionButton(
+              onPressed: () async {
+                final result = await Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AddFixtureScreen(),
+                  ),
+                );
+                if (result == true) {
+                  setState(() {
+                    _brandsFuture = ApiService.obtenerMarcas();
+                  });
+                }
+              },
+              backgroundColor: const Color(AppConfig.accentColorValue),
+              child: const Icon(Icons.add, color: Colors.white),
+            )
+          : null,
       body: FutureBuilder<List<Brand>>(
         future: _brandsFuture,
         builder: (context, snapshot) {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'home_screen.dart';
-import '../config/app_config.dart';
+import '../data/auth_service.dart'; // Importar AuthService
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,12 +11,11 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
-  // Use TextEditingControllers for persistent state management of text fields
-  final _emailController = TextEditingController(text: 'admin'); // Default for testing
-  final _passwordController = TextEditingController(text: '1234'); // Default for testing
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
   bool _ocultarPassword = true;
   bool _isLoading = false;
-  String? _errorMessage; // For displaying login errors
+  String? _errorMessage;
 
   @override
   void dispose() {
@@ -26,18 +25,25 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void _iniciarSesion() async {
+    if (!_formKey.currentState!.validate()) return;
+
     setState(() {
       _isLoading = true;
-      _errorMessage = null; // Clear previous errors
+      _errorMessage = null;
     });
 
-    // Simulate a network delay
-    await Future.delayed(const Duration(milliseconds: 1500));
+    final username = _emailController.text.trim();
+    final password = _passwordController.text.trim();
 
-    if (!mounted) return; // Check if the widget is still in the tree
+    final success = await AuthService.login(username, password);
 
-    if (_emailController.text == AppConfig.defaultUsername &&
-        _passwordController.text == AppConfig.defaultPassword) {
+    if (!mounted) return;
+
+    setState(() {
+      _isLoading = false;
+    });
+
+    if (success) {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const HomeScreen()),
@@ -45,7 +51,6 @@ class _LoginScreenState extends State<LoginScreen> {
     } else {
       setState(() {
         _errorMessage = 'Usuario o contraseña incorrectos.';
-        _isLoading = false;
       });
     }
   }
@@ -83,7 +88,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.lightbulb_outline, size: 60, color: Colors.amber),
+                    const Icon(
+                      Icons.lightbulb_outline,
+                      size: 60,
+                      color: Colors.amber,
+                    ),
                     const SizedBox(height: 16),
 
                     const Text(
@@ -97,10 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     const SizedBox(height: 8),
                     const Text(
                       'Repositorio de Luminarias',
-                      style: TextStyle(
-                        color: Colors.white70,
-                        fontSize: 16,
-                      ),
+                      style: TextStyle(color: Colors.white70, fontSize: 16),
                     ),
                     const SizedBox(height: 32),
 
@@ -110,7 +116,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         labelText: 'Correo electrónico',
                         labelStyle: const TextStyle(color: Colors.white70),
-                        prefixIcon: const Icon(Icons.email_outlined, color: Colors.amber),
+                        prefixIcon: const Icon(
+                          Icons.email_outlined,
+                          color: Colors.amber,
+                        ),
                         filled: true,
                         fillColor: Colors.white.withOpacity(0.1),
                         border: OutlineInputBorder(
@@ -137,14 +146,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       decoration: InputDecoration(
                         labelText: 'Contraseña',
                         labelStyle: const TextStyle(color: Colors.white70),
-                        prefixIcon: const Icon(Icons.lock_outline, color: Colors.amber),
+                        prefixIcon: const Icon(
+                          Icons.lock_outline,
+                          color: Colors.amber,
+                        ),
                         suffixIcon: IconButton(
                           icon: Icon(
-                            _ocultarPassword ? Icons.visibility_off : Icons.visibility,
+                            _ocultarPassword
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                             color: Colors.white70,
                           ),
                           onPressed: () {
-                            setState(() => _ocultarPassword = !_ocultarPassword);
+                            setState(
+                              () => _ocultarPassword = !_ocultarPassword,
+                            );
                           },
                         ),
                         filled: true,
@@ -160,7 +176,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         }
                         return null;
                       },
-                      onFieldSubmitted: (_) => _iniciarSesion(), // Submit on Enter
+                      onFieldSubmitted: (_) =>
+                          _iniciarSesion(), // Submit on Enter
                     ),
                     const SizedBox(height: 30),
 
@@ -169,7 +186,10 @@ class _LoginScreenState extends State<LoginScreen> {
                         padding: const EdgeInsets.only(bottom: 20.0),
                         child: Text(
                           _errorMessage!,
-                          style: const TextStyle(color: Colors.redAccent, fontSize: 14),
+                          style: const TextStyle(
+                            color: Colors.redAccent,
+                            fontSize: 14,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -177,7 +197,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     SizedBox(
                       width: double.infinity,
                       child: ElevatedButton(
-                        onPressed: _isLoading ? null : _iniciarSesion, // Disable when loading
+                        onPressed: _isLoading
+                            ? null
+                            : _iniciarSesion, // Disable when loading
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFFD32F2F),
                           padding: const EdgeInsets.symmetric(vertical: 14),
@@ -185,7 +207,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                         ),
-                        child: _isLoading // Show loading indicator
+                        child:
+                            _isLoading // Show loading indicator
                             ? const SizedBox(
                                 height: 20,
                                 width: 20,

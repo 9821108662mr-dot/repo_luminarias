@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Sidebar extends StatelessWidget {
-  final Function(String) onSelectMarca; // Callback para cuando se selecciona una marca
+  final Function(String) onSelectMarca;
   final List<String> marcas;
   final String? selectedMarca;
 
@@ -34,7 +34,6 @@ class Sidebar extends StatelessWidget {
               ),
             ),
           ),
-          // 🔍 Barra de búsqueda
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -43,19 +42,16 @@ class Sidebar extends StatelessWidget {
                 prefixIcon: const Icon(Icons.search),
                 filled: true,
                 fillColor: Colors.white,
-                contentPadding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                contentPadding:
+                    const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onChanged: (query) {
-                // filtrar marcas (a implementar desde dashboard)
-              },
+              onChanged: (query) {},
             ),
           ),
           const Divider(),
-
-          // 📋 Lista de marcas
           Expanded(
             child: ListView.builder(
               itemCount: marcas.length,
@@ -69,7 +65,8 @@ class Sidebar extends StatelessWidget {
                     marca,
                     style: TextStyle(
                       color: isSelected ? Colors.blue : Colors.black87,
-                      fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+                      fontWeight:
+                          isSelected ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
                   onTap: () => onSelectMarca(marca),

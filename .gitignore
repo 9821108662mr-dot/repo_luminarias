@@ -43,3 +43,15 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Backend Python
+backend/__pycache__/
+backend/*.db
+backend/*.sqlite
+backend/*.sqlite3
+backend/venv/
+backend/.env
+
+# Build logs
+build_log.txt
+build_log_utf8.txt

@@ -1,0 +1,580 @@
+{
+  "Spotlight": [
+    {
+      "nombre": "Spotlight Beam 230",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/beam230.pdf",
+      "libreria": "",
+      "marca": "Spotlight"
+    },
+    {
+      "nombre": "Spotlight Wash 500",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/wash500.pdf",
+      "libreria": "",
+      "marca": "Spotlight"
+    },
+    {
+      "nombre": "Spotlight Spot 300",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/spot300.pdf",
+      "libreria": "",
+      "marca": "Spotlight"
+    },
+    {
+      "nombre": "Spotlight Laser FX",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserfx.pdf",
+      "libreria": "",
+      "marca": "Spotlight"
+    }
+  ],
+  "Chauvet": [
+    {
+      "nombre": "Chauvet Beam Q60",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/intimidator.png",
+      "manual": "/static/descargas/BeamQ60.pdf",
+      "libreria": "",
+      "marca": "Chauvet"
+    },
+    {
+      "nombre": "Chauvet FX HEX",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/fxhex.png",
+      "manual": "/static/descargas/FXHex.pdf",
+      "libreria": "",
+      "marca": "Chauvet"
+    },
+    {
+      "nombre": "Chauvet Strike Blader 10",
+      "tipo": "BARRA",
+      "imagen": "/static/luminarias/strike10.png",
+      "manual": "/static/descargas/STRIKE10.pdf",
+      "libreria": "",
+      "marca": "Chauvet"
+    },
+    {
+      "nombre": "Chauvet Spot 375ZX",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/spot400.png",
+      "manual": "/static/descargas/spot400.pdf",
+      "libreria": "",
+      "marca": "Chauvet"
+    }
+  ],
+  "Claypaky": [
+    {
+      "nombre": "Sharpy X Frame",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/XFrame.pdf",
+      "libreria": "",
+      "marca": "Claypaky"
+    },
+    {
+      "nombre": "Arolla Profile HP",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/profile.png",
+      "manual": "/static/descargas/ArollaProfile.pdf",
+      "libreria": "",
+      "marca": "Claypaky"
+    },
+    {
+      "nombre": "Xtylos",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/xquilos.png",
+      "manual": "/static/descargas/Xtylos.pdf",
+      "libreria": "",
+      "marca": "Claypaky"
+    },
+    {
+      "nombre": "Tambora",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/Tambora.png",
+      "manual": "/static/descargas/Tambora.pdf",
+      "libreria": "",
+      "marca": "Claypaky"
+    }
+  ],
+  "ProtonTech": [
+    {
+      "nombre": "ProtonTech Beam 7R",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/beam7r.pdf",
+      "libreria": "",
+      "marca": "ProtonTech"
+    },
+    {
+      "nombre": "ProtonTech Wash RGB",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/washrgb.pdf",
+      "libreria": "",
+      "marca": "ProtonTech"
+    },
+    {
+      "nombre": "ProtonTech  Spot 600",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/spot600.pdf",
+      "libreria": "",
+      "marca": "ProtonTech"
+    },
+    {
+      "nombre": "ProtonTech Laser FX",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserfx.pdf",
+      "libreria": "",
+      "marca": "ProtonTech"
+    }
+  ],
+  "Vari-Lite": [
+    {
+      "nombre": "Vari-Lite VL2600",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/vl2600.pdf",
+      "libreria": "",
+      "marca": "Vari-Lite"
+    },
+    {
+      "nombre": "Vari-Lite Beam 300",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/beam300.pdf",
+      "libreria": "",
+      "marca": "Vari-Lite"
+    },
+    {
+      "nombre": "Vari-Lite Wash 1000",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/wash1000.pdf",
+      "libreria": "",
+      "marca": "Vari-Lite"
+    },
+    {
+      "nombre": "Vari-Lite Laser FX",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserfx.pdf",
+      "libreria": "",
+      "marca": "Vari-Lite"
+    }
+  ],
+  "Robe Lighting": [
+    {
+      "nombre": "Robe MegaPointe",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/mega.png",
+      "manual": "/static/descargas/RobinMegaPointe.pdf",
+      "libreria": "",
+      "marca": "Robe Lighting"
+    },
+    {
+      "nombre": "Tetra x",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/tetra.png",
+      "manual": "/static/descargas/manualRobinTetraX.pdf",
+      "libreria": "",
+      "marca": "Robe Lighting"
+    },
+    {
+      "nombre": "Robe LEDBeam 350",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/ledbeam.png",
+      "manual": "/static/descargas/RobinLEDBeam.pdf",
+      "libreria": "",
+      "marca": "Robe Lighting"
+    },
+    {
+      "nombre": "Robe Lighting Pointe 280 W",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/robe.png",
+      "manual": "/static/descargas/RobinLedPOINTE.pdf",
+      "libreria": "",
+      "marca": "Robe Lighting"
+    }
+  ],
+  "Martin Professional": [
+    {
+      "nombre": "Martin Mac Aura",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/mac_aura.pdf",
+      "libreria": "",
+      "marca": "Martin Professional"
+    },
+    {
+      "nombre": "Martin Quantum Beam",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/quantum.pdf",
+      "libreria": "",
+      "marca": "Martin Professional"
+    },
+    {
+      "nombre": "Martin Rush 2",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/rush2.pdf",
+      "libreria": "",
+      "marca": "Martin Professional"
+    },
+    {
+      "nombre": "Martin Laser RGB",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserrgb.pdf",
+      "libreria": "",
+      "marca": "Martin Professional"
+    }
+  ],
+  "Elation Lighting": [
+    {
+      "nombre": "Elation Smarty Hybrid",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/smarty.pdf",
+      "libreria": "",
+      "marca": "Elation Lighting"
+    },
+    {
+      "nombre": "Elation Fuze Wash 500",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/fuze500.pdf",
+      "libreria": "",
+      "marca": "Elation Lighting"
+    },
+    {
+      "nombre": "Elation Proteus",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/proteus.pdf",
+      "libreria": "",
+      "marca": "Elation Lighting"
+    },
+    {
+      "nombre": "Elation Rayzor 760",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/rayzor760.pdf",
+      "libreria": "",
+      "marca": "Elation Lighting"
+    }
+  ],
+  "Ayrton": [
+    {
+      "nombre": "Ayrton Diablo",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/diablo.pdf",
+      "libreria": "",
+      "marca": "Ayrton"
+    },
+    {
+      "nombre": "Ayrton Huracán Wash",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/huracan.pdf",
+      "libreria": "",
+      "marca": "Ayrton"
+    },
+    {
+      "nombre": "Ayrton Bora Beam",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/bora.pdf",
+      "libreria": "",
+      "marca": "Ayrton"
+    },
+    {
+      "nombre": "Ayrton Cobra Laser",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/cobra.pdf",
+      "libreria": "",
+      "marca": "Ayrton"
+    }
+  ],
+  "High End Systems": [
+    {
+      "nombre": "HighEnd SolaFrame",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/solaframe.pdf",
+      "libreria": "",
+      "marca": "High End Systems"
+    },
+    {
+      "nombre": "HighEnd SolaWash",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/solawash.pdf",
+      "libreria": "",
+      "marca": "High End Systems"
+    },
+    {
+      "nombre": "HighEnd SolaBeam",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/solabeam.pdf",
+      "libreria": "",
+      "marca": "High End Systems"
+    },
+    {
+      "nombre": "HighEnd Laser FX",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserfx.pdf",
+      "libreria": "",
+      "marca": "High End Systems"
+    }
+  ],
+  "GLP": [
+    {
+      "nombre": "GLP X4 Bar 20",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/x4bar.pdf",
+      "libreria": "",
+      "marca": "GLP"
+    },
+    {
+      "nombre": "GLP JDC1",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/jdc1.pdf",
+      "libreria": "",
+      "marca": "GLP"
+    },
+    {
+      "nombre": "GLP Impression",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/impression.pdf",
+      "libreria": "",
+      "marca": "GLP"
+    },
+    {
+      "nombre": "GLP Laser RGB",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserrgb.pdf",
+      "libreria": "",
+      "marca": "GLP"
+    }
+  ],
+  "Prolights": [
+    {
+      "nombre": "Prolights Astra Wash7",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/astra.pdf",
+      "libreria": "",
+      "marca": "Prolights"
+    },
+    {
+      "nombre": "Prolights Jet Beam2",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/jetbeam.pdf",
+      "libreria": "",
+      "marca": "Prolights"
+    },
+    {
+      "nombre": "Prolights EclProfile",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/ecl.pdf",
+      "libreria": "",
+      "marca": "Prolights"
+    },
+    {
+      "nombre": "Prolights SunBlast",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/sunblast.pdf",
+      "libreria": "",
+      "marca": "Prolights"
+    }
+  ],
+  "ETC": [
+    {
+      "nombre": "ETC Source Four",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/source.pdf",
+      "libreria": "",
+      "marca": "ETC"
+    },
+    {
+      "nombre": "ETC Desire D40",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/d40.pdf",
+      "libreria": "",
+      "marca": "ETC"
+    },
+    {
+      "nombre": "ETC Relevé",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/releve.pdf",
+      "libreria": "",
+      "marca": "ETC"
+    },
+    {
+      "nombre": "ETC Laser FX",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/laserfx.pdf",
+      "libreria": "",
+      "marca": "ETC"
+    }
+  ],
+  "MOKA SFX": [
+    {
+      "nombre": "MOKA Beam 230",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/mega.png",
+      "manual": "/static/descargas/beam230.pdf",
+      "libreria": "",
+      "marca": "MOKA SFX"
+    },
+    {
+      "nombre": "MOKA Wash RGB",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/washrgb.pdf",
+      "libreria": "",
+      "marca": "MOKA SFX"
+    },
+    {
+      "nombre": "MOKA Laser Show",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/lasershow.pdf",
+      "libreria": "",
+      "marca": "MOKA SFX"
+    },
+    {
+      "nombre": "MOKA Spot 200",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/spot200.pdf",
+      "libreria": "",
+      "marca": "MOKA SFX"
+    }
+  ],
+  "Showco": [
+    {
+      "nombre": "Showco COLOR BLENDER PLUS",
+      "tipo": "PAR",
+      "imagen": "/static/luminarias/blenderplus.png",
+      "manual": "/static/descargas/blenderplus.pdf",
+      "libreria": "",
+      "marca": "Showco"
+    },
+    {
+      "nombre": "Showco Wash 600",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/wash600.pdf",
+      "libreria": "",
+      "marca": "Showco"
+    },
+    {
+      "nombre": "Showco Spot 700",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/spot700.pdf",
+      "libreria": "",
+      "marca": "Showco"
+    },
+    {
+      "nombre": "ovation",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/ovation.png",
+      "manual": "/static/descargas/Ovation.pdf",
+      "libreria": "",
+      "marca": "Showco"
+    }
+  ],
+  "Lite Tek": [
+    {
+      "nombre": "Lite Tek Beam 80",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/beam80.png",
+      "manual": "/static/descargas/beam150.pdf",
+      "libreria": "",
+      "marca": "Lite Tek"
+    },
+    {
+      "nombre": "Lite Tek Cabeza Móvil",
+      "tipo": "BEAM",
+      "imagen": "/static/luminarias/BEAM230R.png",
+      "manual": "/static/descargas/washfx.pdf",
+      "libreria": "",
+      "marca": "Lite Tek"
+    },
+    {
+      "nombre": "Lite Tek ParLED6XT IP65",
+      "tipo": "PAR",
+      "imagen": "/static/luminarias/PAR.png",
+      "manual": "/static/descargas/spotmini.pdf",
+      "libreria": "",
+      "marca": "Lite Tek"
+    },
+    {
+      "nombre": "Lite Tek ParLED 54x1 RGB",
+      "tipo": "PAR",
+      "imagen": "/static/luminarias/PAR54X1.png",
+      "manual": "/static/descargas/laserpro.pdf",
+      "libreria": "",
+      "marca": "Lite Tek"
+    }
+  ],
+  "Cymproled": [
+    {
+      "nombre": "BEAM 7R 250W",
+      "tipo": "Beam",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/beam400.pdf",
+      "libreria": "",
+      "marca": "Cymproled"
+    },
+    {
+      "nombre": "Cymproled Wash 200",
+      "tipo": "Wash",
+      "imagen": "/static/luminarias/sharpy.png",
+      "manual": "/static/descargas/wash200.pdf",
+      "libreria": "",
+      "marca": "Cymproled"
+    },
+    {
+      "nombre": "Cymproled Spot 250",
+      "tipo": "Spot",
+      "imagen": "/static/luminarias/230beam250w.jpg",
+      "manual": "/static/descargas/spot250.pdf",
+      "libreria": "",
+      "marca": "Cymproled"
+    },
+    {
+      "nombre": "PAR LED IP65",
+      "tipo": "Laser",
+      "imagen": "/static/luminarias/parledip65.png",
+      "manual": "/static/descargas/laserrgb.pdf",
+      "libreria": "",
+      "marca": "Cymproled"
+    }
+  ]
+}

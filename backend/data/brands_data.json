@@ -1,0 +1,70 @@
+{
+  "Spotlight": {
+    "logo": "/static/images/spotlight.jpg",
+    "description": "Innovación en iluminación profesional."
+  },
+  "Chauvet": {
+    "logo": "/static/images/chauvet.jpg",
+    "description": "Tecnología LED de vanguardia para espectáculos."
+  },
+  "Claypaky": {
+    "logo": "/static/images/claypaky.png",
+    "description": "Luces inteligentes para los escenarios más exigentes."
+  },
+  "ProtonTech": {
+    "logo": "/static/images/protontech.jpg",
+    "description": "Soluciones de iluminación robustas y fiables."
+  },
+  "Vari-Lite": {
+    "logo": "/static/images/varilite.jpg",
+    "description": "Pioneros en iluminación de conciertos y eventos."
+  },
+  "Robe Lighting": {
+    "logo": "/static/images/robe.png",
+    "description": "Diseño y rendimiento excepcionales en iluminación."
+  },
+  "Martin Professional": {
+    "logo": "/static/images/martin.jpg",
+    "description": "Líder mundial en efectos de iluminación dinámicos."
+  },
+  "Elation Lighting": {
+    "logo": "/static/images/elation.jpg",
+    "description": "Amplia gama de productos para cada aplicación."
+  },
+  "Ayrton": {
+    "logo": "/static/images/AyrtonLogo.jpg",
+    "description": "Rendimiento extremo, diseño innovador."
+  },
+  "High End Systems": {
+    "logo": "/static/images/highend.jpg",
+    "description": "Tecnología punta para control y efectos de luz."
+  },
+  "GLP": {
+    "logo": "/static/images/glp.jpg",
+    "description": "Innovación alemana en iluminación de alta calidad."
+  },
+  "Prolights": {
+    "logo": "/static/images/prolights.jpg",
+    "description": "Iluminación profesional para teatro y eventos."
+  },
+  "ETC": {
+    "logo": "/static/images/etc.jpg",
+    "description": "Excelencia en control de iluminación y luminarias."
+  },
+  "MOKA SFX": {
+    "logo": "/static/images/moka.png",
+    "description": "Efectos especiales y equipos de escenario."
+  },
+  "Showco": {
+    "logo": "/static/images/showco.png",
+    "description": "Soluciones de iluminación para grandes producciones."
+  },
+  "Lite Tek": {
+    "logo": "/static/images/litetek.png",
+    "description": "Iluminación asequible y de alto rendimiento."
+  },
+  "Cymproled": {
+    "logo": "/static/images/cympro.jpg",
+    "description": "Iluminación LED eficiente para todo tipo de espacios."
+  }
+}

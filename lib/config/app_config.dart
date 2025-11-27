@@ -1,7 +1,7 @@
 // lib/config/app_config.dart
 class AppConfig {
   // URL del backend - cambiar aquí si el backend corre en otro puerto
-  static const String backendUrl = "http://127.0.0.1:8000";
+  static const String backendUrl = "https://luminarias-backend.onrender.com";
 
   // Timeout para llamadas API
   static const Duration apiTimeout = Duration(seconds: 10);

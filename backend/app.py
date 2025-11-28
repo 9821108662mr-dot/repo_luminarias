@@ -16,6 +16,8 @@ import auth # Importar módulo de autenticación
 # Crear tablas al inicio (si no existen)
 database.create_db_and_tables()
 
+import json
+
 # Inicializar usuarios al arrancar
 def init_users():
     print("Inicializando usuarios...")
@@ -57,7 +59,61 @@ def init_users():
     finally:
         db.close()
 
+def populate_data():
+    print("Verificando datos iniciales...")
+    db = database.SessionLocal()
+    try:
+        if db.query(database.Marca).count() == 0:
+            print("Base de datos vacía. Cargando datos iniciales...")
+            
+            # Cargar Marcas
+            brands_path = os.path.join(BASE_DIR, "data", "brands_data.json")
+            if os.path.exists(brands_path):
+                with open(brands_path, "r", encoding="utf-8") as f:
+                    brands_data = json.load(f)
+                    
+                for name, data in brands_data.items():
+                    marca = database.Marca(nombre=name)
+                    db.add(marca)
+                db.commit()
+                print("✓ Marcas cargadas")
+            else:
+                print(f"⚠ No se encontró {brands_path}")
+
+            # Cargar Fixtures
+            fixtures_path = os.path.join(BASE_DIR, "fixtures.json")
+            if os.path.exists(fixtures_path):
+                with open(fixtures_path, "r", encoding="utf-8") as f:
+                    fixtures_data = json.load(f)
+                
+                for marca_nombre, fixtures_list in fixtures_data.items():
+                    # Buscar ID de la marca
+                    marca = db.query(database.Marca).filter(database.Marca.nombre == marca_nombre).first()
+                    if marca:
+                        for fix in fixtures_list:
+                            nuevo_fixture = database.Fixture(
+                                nombre=fix["nombre"],
+                                tipo=fix["tipo"],
+                                imagen=fix["imagen"],
+                                manual=fix["manual"],
+                                libreria=fix.get("libreria", ""),
+                                marca_id=marca.id
+                            )
+                            db.add(nuevo_fixture)
+                db.commit()
+                print("✓ Fixtures cargados")
+            else:
+                print(f"⚠ No se encontró {fixtures_path}")
+        else:
+            print("Datos ya existen. Saltando carga inicial.")
+            
+    except Exception as e:
+        print(f"Error poblando datos: {e}")
+    finally:
+        db.close()
+
 init_users()
+populate_data()
 
 app = FastAPI(title="API Luminarias PRO-MG (Dinámica)")
 

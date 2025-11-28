@@ -243,6 +243,9 @@ def get_fixtures(marca_nombre: str, request: Request, db: Session = Depends(get_
 
 @app.post("/brands", response_model=models.Marca)
 def create_brand(marca: models.MarcaBase, current_user: models.User = Depends(auth.get_current_active_user), db: Session = Depends(get_db)):
+    if current_user.username != "admin":
+        raise HTTPException(status_code=403, detail="Solo el administrador puede agregar marcas")
+    
     db_marca = db.query(database.Marca).filter(database.Marca.nombre == marca.nombre).first()
     if db_marca:
         raise HTTPException(status_code=400, detail="La marca ya existe")
@@ -254,6 +257,9 @@ def create_brand(marca: models.MarcaBase, current_user: models.User = Depends(au
 
 @app.post("/fixtures", response_model=models.Fixture)
 def create_fixture(fixture: models.FixtureBase, marca_nombre: str, current_user: models.User = Depends(auth.get_current_active_user), db: Session = Depends(get_db)):
+    if current_user.username != "admin":
+        raise HTTPException(status_code=403, detail="Solo el administrador puede agregar luminarias")
+
     # Buscar la marca por nombre
     db_marca = db.query(database.Marca).filter(database.Marca.nombre == marca_nombre).first()
     if not db_marca:
@@ -274,6 +280,9 @@ def create_fixture(fixture: models.FixtureBase, marca_nombre: str, current_user:
 
 @app.delete("/fixtures/{fixture_id}")
 def delete_fixture(fixture_id: int, current_user: models.User = Depends(auth.get_current_active_user), db: Session = Depends(get_db)):
+    if current_user.username != "admin":
+        raise HTTPException(status_code=403, detail="Solo el administrador puede eliminar luminarias")
+
     fixture = db.query(database.Fixture).filter(database.Fixture.id == fixture_id).first()
     if not fixture:
         raise HTTPException(status_code=404, detail="Fixture no encontrado")

@@ -16,6 +16,49 @@ import auth # Importar módulo de autenticación
 # Crear tablas al inicio (si no existen)
 database.create_db_and_tables()
 
+# Inicializar usuarios al arrancar
+def init_users():
+    print("Inicializando usuarios...")
+    db = database.SessionLocal()
+    try:
+        # Usuario admin
+        admin_user = auth.get_user(db, "admin")
+        hashed_pwd = auth.get_password_hash("admin")
+        
+        if not admin_user:
+            print("Creando usuario admin...")
+            admin_user = database.User(
+                username="admin",
+                hashed_password=hashed_pwd,
+                disabled=False
+            )
+            db.add(admin_user)
+            print("✓ Usuario admin creado")
+        else:
+            print("Actualizando contraseña de admin...")
+            admin_user.hashed_password = hashed_pwd
+            print("✓ Contraseña de admin actualizada")
+            
+        # Usuario normal
+        if not auth.get_user(db, "user"):
+            print("Creando usuario normal...")
+            hashed_pwd = auth.get_password_hash("1234")
+            normal_user = database.User(
+                username="user",
+                hashed_password=hashed_pwd,
+                disabled=False
+            )
+            db.add(normal_user)
+            print("✓ Usuario user creado")
+            
+        db.commit()
+    except Exception as e:
+        print(f"Error inicializando usuarios: {e}")
+    finally:
+        db.close()
+
+init_users()
+
 app = FastAPI(title="API Luminarias PRO-MG (Dinámica)")
 
 # CORS

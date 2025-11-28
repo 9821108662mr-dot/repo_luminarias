@@ -172,12 +172,30 @@ def get_brands(request: Request, db: Session = Depends(get_db)):
     # Obtener todas las marcas de la DB
     marcas = db.query(database.Marca).all()
     
+    # Cargar mapeo de logos desde JSON para asegurar imágenes correctas
+    brands_logo_map = {}
+    brands_path = os.path.join(BASE_DIR, "data", "brands_data.json")
+    if os.path.exists(brands_path):
+        try:
+            with open(brands_path, "r", encoding="utf-8") as f:
+                brands_data = json.load(f)
+                for name, data in brands_data.items():
+                    brands_logo_map[name] = data.get("logo")
+        except Exception as e:
+            print(f"Error cargando mapa de logos: {e}")
+
     base_url = f"{request.url.scheme}://{request.url.netloc}"
     
     brands_list = []
     for marca in marcas:
-        # Por ahora usamos un logo por defecto o podríamos agregarlo al modelo Marca
-        logo_url = f"{base_url}/static/images/default_logo.png"
+        # Obtener logo del mapa o usar default
+        logo_path = brands_logo_map.get(marca.nombre, "/static/images/default_logo.png")
+        
+        # Asegurar que la ruta sea absoluta
+        if logo_path.startswith("/"):
+            logo_url = f"{base_url}{logo_path}"
+        else:
+            logo_url = logo_path
         
         brands_list.append({
             "name": marca.nombre,

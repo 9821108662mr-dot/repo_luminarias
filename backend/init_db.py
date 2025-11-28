@@ -13,19 +13,24 @@ if __name__ == "__main__":
     
     try:
         # Usuario admin
-        if not auth.get_user(db, "admin"):
+        admin_user = auth.get_user(db, "admin")
+        hashed_pwd = auth.get_password_hash("admin")
+        
+        if not admin_user:
             print("Creando usuario admin...")
-            hashed_pwd = auth.get_password_hash("admin")
             admin_user = database.User(
                 username="admin",
                 hashed_password=hashed_pwd,
                 disabled=False
             )
             db.add(admin_user)
-            db.commit()
-            print("✓ Usuario admin creado (usuario: admin, contraseña: admin)")
+            print("✓ Usuario admin creado")
         else:
-            print("✓ Usuario admin ya existe")
+            print("Actualizando contraseña de admin...")
+            admin_user.hashed_password = hashed_pwd
+            print("✓ Contraseña de admin actualizada")
+            
+        db.commit()
         
         # Usuario normal
         if not auth.get_user(db, "user"):

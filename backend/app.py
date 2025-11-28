@@ -13,6 +13,9 @@ import database
 import models
 import auth # Importar módulo de autenticación
 
+# Definir directorio base
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 # Crear tablas al inicio (si no existen)
 database.create_db_and_tables()
 
@@ -127,7 +130,6 @@ app.add_middleware(
 )
 
 # Montar carpeta static
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 if not os.path.isdir(STATIC_DIR):
     print(f"[WARN] static dir no encontrada en: {STATIC_DIR}")

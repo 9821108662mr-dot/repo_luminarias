@@ -50,7 +50,7 @@ def root():
 # --- Autenticación ---
 
 @app.post("/token", response_model=models.Token)
-async def login_for_access_token(form_data: auth.OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+async def login_for_access_token(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
     user = auth.authenticate_user(db, form_data.username, form_data.password)
     if not user:
         raise HTTPException(
@@ -166,14 +166,27 @@ def delete_fixture(fixture_id: int, current_user: models.User = Depends(auth.get
 # Ejecutar con uvicorn en puerto 8000
 if __name__ == "__main__":
     import uvicorn
-    # Crear usuario admin por defecto si no existe
+    # Crear usuarios por defecto si no existen
     db = database.SessionLocal()
+    
+    # Usuario admin
     if not auth.get_user(db, "admin"):
         print("Creando usuario admin por defecto...")
         hashed_pwd = auth.get_password_hash("admin")
-        admin_user = database.User(username="admin", hashed_password=hashed_pwd)
+        admin_user = database.User(username="admin", hashed_password=hashed_pwd, disabled=False)
         db.add(admin_user)
         db.commit()
+        print("✓ Usuario admin creado (usuario: admin, contraseña: admin)")
+    
+    # Usuario normal
+    if not auth.get_user(db, "user"):
+        print("Creando usuario normal por defecto...")
+        hashed_pwd = auth.get_password_hash("1234")
+        normal_user = database.User(username="user", hashed_password=hashed_pwd, disabled=False)
+        db.add(normal_user)
+        db.commit()
+        print("✓ Usuario user creado (usuario: user, contraseña: 1234)")
+    
     db.close()
     
     print("Iniciando servidor en http://127.0.0.1:8000")
